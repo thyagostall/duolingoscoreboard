@@ -3,8 +3,12 @@ import datetime
 
 
 def main():
-    user_name = '<user name here>'
+    print_user_scoreboard('<user name here>')
+
+
+def print_user_scoreboard(user_name):
     user_data = get_json(user_name)
+    print(user_name)
     print(get_improvement_grouped_by_day(user_data))
     print(get_streak(user_data))
     print(get_total_points(user_name, user_data))
