@@ -3,7 +3,14 @@ import datetime
 
 
 def get(username):
-    return _get_json(username)
+    user_data = _get_json(username)
+
+    return {
+        'username': username,
+        'score_per_day': _get_improvement_grouped_by_day(user_data),
+        'current_streak': _get_streak(user_data),
+        'total_points': _get_total_points(username, user_data),
+    }
 
 
 def _get_json(username):
